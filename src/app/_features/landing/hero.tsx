@@ -1,9 +1,5 @@
-"use client";
-
 import React from "react";
-import { Search } from "lucide-react";
-import { Input } from "~/components/ui/input";
-import { Button } from "~/components/ui/button";
+import HeroSearch from "../search/hero-search";
 
 export default function Hero() {
   return (
@@ -19,17 +15,7 @@ export default function Hero() {
       </div>
 
       <div className="w-full max-w-md">
-        <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
-          <div className="relative flex-1">
-            <Input
-              type="text"
-              placeholder="Enter city name..."
-              className="pl-10"
-            />
-            <Search className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
-          </div>
-          <Button type="submit">Search</Button>
-        </form>
+        <HeroSearch />
       </div>
     </section>
   );

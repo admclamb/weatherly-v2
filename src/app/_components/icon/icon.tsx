@@ -15,7 +15,7 @@ const Icon = ({ icon, description, size = "2x", className = "" }: Props) => {
     icon && (
       <Image
         className={className}
-        src={`${env.WEAHTER_API_URL}/img/wn/${icon}@${size}.png`}
+        src={`${env.WEATHER_API_URL}/img/wn/${icon}@${size}.png`}
         alt={description}
         width={dimension}
         height={dimension}

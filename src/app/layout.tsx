@@ -5,6 +5,8 @@ import { Geist } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "./_features/theme/theme.provider";
+import { Toaster } from "~/components/ui/sonner";
+import { UnitsProvider } from "./_features/units/units.provider";
 
 export const metadata: Metadata = {
   title: "Weatherly",
@@ -21,8 +23,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable}`}>
-      <body>
+    <html lang="en" className={`${geist.variable}`} suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <TRPCReactProvider>
           <ThemeProvider
             attribute="class"
@@ -30,7 +32,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <UnitsProvider>{children}</UnitsProvider>
+
+            <Toaster />
           </ThemeProvider>
         </TRPCReactProvider>
       </body>
